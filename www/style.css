@@ -64,8 +64,10 @@ a, a:link, a:visited, a:hover, a:focus {
 
 .main-nav-container{
   position: relative;
-  display: flex;
-  align-items: center;
+}
+
+.main-nav-container-name{
+  display: inline-block;
 }
 
 .main-nav{
@@ -96,9 +98,10 @@ a, a:link, a:visited, a:hover, a:focus {
 }
 
 
-.main-nav .menu-logo{
+.main-nav .menu-logo, .main-nav-container-image{
   height: 30px;
   margin-right: 8px;
+  margin-left: 8px;
   margin-bottom: 2px;
 }
 
@@ -160,42 +163,6 @@ a, a:link, a:visited, a:hover, a:focus {
   box-shadow: 0 20px 40px black;
   background-image: radial-gradient(circle at 7% 50%, #1c2127, #15181c 80%);
 }
-
-/** Loading **/
-.spinner{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  visibility: hidden;
-  animation: 0.3s showDelayed;
-  animation-fill-mode: forwards;
-}
-
-.spinner .ring{
-  border: 4px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 4px solid #00ccff;
-  width: 50px;
-  height: 50px;
-  animation: spin .5s linear infinite;
-}
-
-.spinner .small{
-  width: 25px;
-  height: 25px;
-}
-
-.spinner .loading{
-  font-size: 16px;
-  color: white;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 /** New Design Ends **/
 
 
@@ -1233,6 +1200,35 @@ body > .container, .navbar > .container, > .container, .content-wrap > div > .co
   align-items: center;
 }
 
+.footer_container_content_about_bc {
+  padding-top: 10px;
+  display: inline-flex
+}
+
+.footer_container_content_about_bc > img {
+  min-width: 150px;
+  min-height: 150px;
+}
+
+.footer_container_content_about_bc > p {
+  margin: auto;
+  font-size: 20px;
+}
+
+.divider {
+  border-top: 3px solid white;
+}
+
+@media (max-width: 700px) {
+  .footer_container_content_about_bc {
+    display: block;
+  }
+  .footer_container_content_about_bc > p {
+    margin: auto;
+    font-size: 16px;
+  }
+}
+
 .footer_container_content_row_social-media_item {
   display: block;
   width: 20px;
@@ -1903,7 +1899,6 @@ body::after{
   }
 }
 
-@media only screen and (max-width: 500px) {
 
   .footer {
     height: auto !important;
@@ -1921,7 +1916,7 @@ body::after{
   .footer_container_content_onion-links_row {
     text-align: center;
   }
-}
+
 
 
 /* "Copied!" tooltip for click-to-copy buttons */
