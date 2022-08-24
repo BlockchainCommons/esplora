@@ -15,17 +15,17 @@ export default ({ t, page }) =>
     <div className="container">
       <div className="footer_container_content">
         <div className="footer_container_content_about">
-          <h1 className="footer_container_content_about_heading">
-            About Bitcoin Esplora
-          </h1>
-          <p className="footer_container_content_about_text">
-          Our block explorer allows users to search and view specific data that is published in real-time to the Bitcoin blockchain and the Liquid sidechain. As a Bitcoin explorer, it offers many new features compared to existing block explorer choices - the information it presents is drawn from an up to date Bitcoin Core full node, as well as natively supporting SegWit, bech32, and other modern Bitcoin features. The Blockstream Explorer is intended to be easy to use for the casual user, but will increasingly pack some powerful features under the hood for developers. Read more about <a href="https://medium.com/shapeshift-stories/whats-the-deal-with-block-explorers-9fcdb161e788">Block Explorers</a>
-          </p>
+          {process.env.ABOUT_BC_E && <h1 className="footer_container_content_about_heading">
+            {process.env.ABOUT_BC_E}
+          </h1>}
+          {process.env.ABOUT_BC_E_TEXT && <p className="footer_container_content_about_text">
+            {process.env.ABOUT_BC_E_TEXT}
+          </p>}
           <div className="footer_container_content_about_bc">
               <img className="main-nav-container-image" alt="BC Commons Logo" src='img/bc_logo_light.png'/>
-              <p>
-                This site is a proof-of-concept. It is intended to demonstrate the <a href="https://github.com/BlockchainCommons/Gordian#gordian-principles">Principles</a> of the <a href="https://github.com/BlockchainCommons/Gordian/blob/master/README.md">Gordian Architecture</a>. Use at your own risk. For more info on this site, please see its repo. For more info on Blockchain Commons, please see our <a href="https://www.blockchaincommons.com/">main web page</a>. If you'd like to become a sponsor of work like this, please visit our <a href="https://github.com/sponsors/BlockchainCommons">Sponsors Page</a>.
-              </p>
+              {process.env.BC_PROOF_OF_CONCEPT && <p>
+                {process.env.BC_PROOF_OF_CONCEPT}
+              </p>}
             
           </div>
         </div>
