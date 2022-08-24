@@ -1,13 +1,34 @@
 import Snabbdom from 'snabbdom-pragma'
 
 const staticRoot = process.env.STATIC_ROOT || ''
-const links = process.env.FOOTER_LINKS ? JSON.parse(process.env.FOOTER_LINKS) : { [staticRoot+'img/github_blue.png']: 'https://github.com/blockstream/esplora' }
+const links = process.env.FOOTER_LINKS ? JSON.parse(process.env.FOOTER_LINKS) : {
+   [staticRoot+'img/github_blue.png']: 'https://github.com/blockstream/esplora',
+   [staticRoot+'img/twitter.png']: 'https://twitter.com/BlockchainComns',
+   [staticRoot+'img/rss_feed.png']: 'https://www.blockchaincommons.com/atom.xml'
+  }
+
+
 
 
 export default ({ t, page }) =>
   <footer className="footer">
     <div className="container">
       <div className="footer_container_content">
+        <div className="footer_container_content_about">
+          {process.env.ABOUT_BC_E && <h1 className="footer_container_content_about_heading">
+            {process.env.ABOUT_BC_E}
+          </h1>}
+          {process.env.ABOUT_BC_E_TEXT && <p className="footer_container_content_about_text">
+            {process.env.ABOUT_BC_E_TEXT}
+          </p>}
+          <div className="footer_container_content_about_bc">
+              <img className="main-nav-container-image" alt="BC Commons Logo" src='img/bc_logo_light.png'/>
+              {process.env.BC_PROOF_OF_CONCEPT && <p>
+                {process.env.BC_PROOF_OF_CONCEPT}
+              </p>}
+            
+          </div>
+        </div>
         <div className="language">
           <form method="get">
             { !process.browser && Object.entries(page.query).map(([k, v]) =>
@@ -30,7 +51,6 @@ export default ({ t, page }) =>
                 </a>
             ) }
           </div>
-
           { (process.env.ONION_V3) &&
             <div className="footer_container_content_row_onion_container">
               <div className="footer_container_content_row_onion_icon"></div>
@@ -43,7 +63,7 @@ export default ({ t, page }) =>
         </div>
         <div className="footer_container_content_copyright">
           <div>
-          { process.env.TERMS && <span><a href={ process.env.TERMS } target="_blank">Terms &amp; </a></span> }
+          { process.env.TERMS && <span><a href={ process.env.TERMS } target="_blank">Terms &amp; </a></span>}
           { process.env.PRIVACY && <span><a href={ process.env.PRIVACY } target="_blank">Privacy</a></span> }
           </div>
           <div>{ process.env.SITE_FOOTER || t`Powered by esplora` }</div>
